@@ -1,6 +1,5 @@
 import discord
 import json
-import enum
 import commandDriver
 
 with open('taigaBot.token', 'r') as f:
@@ -52,7 +51,7 @@ class TaigaClient(discord.Client):
                 e.set_image(url=command["url"])
                 await message.channel.send(content=None, embed=e)
             elif command["type"] == 10:
-                await getattr(commandDriver, c[0].casefold())(message)
+                await getattr(commandDriver, f'{c[0].casefold()}_')(message)
             else:
                 await message.channel.send('Undefined Command')
 

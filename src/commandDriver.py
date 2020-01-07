@@ -41,7 +41,7 @@ async def _mutatecommand(message):
         json.dump(commandList, f, indent=4)
         f.truncate()
 
-async def addcommand(message):
+async def addcommand_(message):
     params = await getPCommand(message)
     if params == None:
         await message.channel.send('Invalid form, should take form .addCommand [command name] [text/url]')
@@ -55,7 +55,7 @@ async def addcommand(message):
     await message.channel.send(f'Added command {params[0]}')
  
 
-async def editcommand(message):
+async def editcommand_(message):
     params = await getPCommand(message)
     if params == None:
         await message.channel.send('Invalid form, should take form .editCommand [command name] [text/url]')
@@ -84,5 +84,9 @@ async def editcommand(message):
         await message.channel.send(f'Edited command {params[0]}')
     else:
         await message.channel.send(f'Added command {params[0]}')
-
      
+async def deletecommand_(message):
+    pass
+
+async def help_(message):
+    pass

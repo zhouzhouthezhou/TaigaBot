@@ -1,8 +1,14 @@
 {
+    "help" : {
+        "type" : 10
+    },
     "addcommand": {
         "type": 10
     },
     "editcommand":{
+        "type" : 10
+    },
+    "deletecommand":{
         "type" : 10
     },
     "ping": {
@@ -12,5 +18,13 @@
     "taiga": {
         "type": 1,
         "url": "https://vignette.wikia.nocookie.net/tora-dora/images/8/82/E17_-_9.png/revision/latest/scale-to-width-down/340?cb=20160728131220"
+    },
+    "kms": {
+        "type": 1,
+        "url": "https://thumbs.gfycat.com/ApprehensiveJoyfulBonobo-size_restricted.gif"
+    },
+    "kys": {
+        "type": 1,
+        "url": "https://media1.tenor.com/images/7282a0f80bf1744a17295a124d891068/tenor.gif?itemid=9140602"
     }
 }
