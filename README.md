@@ -32,7 +32,7 @@ addCommand
 ---
 `.addCommand [command name] [text/url]`
 
-The addCommand functionality will add a custom command, `[command name]`, to TaigaBot. This command can either be a text response to the command or an external link to embedd such and a picture or a gif.
+The addCommand functionality will add a custom command, `[command name]`, to TaigaBot. This command will make taiga respond with `[text/url]`. This can either be plain text response or an external link to embedd such and a picture or a gif.
 
 ping
 ---
