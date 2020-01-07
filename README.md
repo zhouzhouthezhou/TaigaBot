@@ -48,7 +48,6 @@ deleteCommand
 ---
 `.deleteCommand [command name]`
 
-WIP
 The delete command will delete the custom command given by [command name].
 
 help

@@ -59,6 +59,7 @@ async def editcommand_(message):
     params = await getPCommand(message)
     if params == None:
         await message.channel.send('Invalid form, should take form .editCommand [command name] [text/url]')
+        return
     
     if len(params) != 2:
         await message.channel.send('Invalid form, should take form .editCommand [command name] [text/url]')
@@ -86,7 +87,31 @@ async def editcommand_(message):
         await message.channel.send(f'Added command {params[0]}')
      
 async def deletecommand_(message):
-    pass
+    params = await getPCommand(message)
+    if params == None:
+        await message.channel.send('Invalid form, should take form .deleteCommand [command name]')
+        return
+
+    params[0] = params[0].casefold()
+
+    commandList = dict()
+    with open('commands.json', 'r+') as f:
+        commandList = json.load(f)
+
+        if params[0] in commandList.keys():
+            del commandList[params[0]]
+        else:
+            await message.channel.send(f'Custom command {params[0]} not found')
+            return
+            
+        f.seek(0)
+        json.dump(commandList, f, indent=4)
+        f.truncate()
+
+
+    await message.channel.send(f'Custom command {params[0]} deleted')
+
+    
 
 async def help_(message):
     pass
