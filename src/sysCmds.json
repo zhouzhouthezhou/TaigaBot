@@ -1,0 +1,13 @@
+{
+    "addcommand": {
+        "type": 10
+    },
+    "ping": {
+        "type": 0,
+        "text": "Pong"
+    },
+    "taiga": {
+        "type": 1,
+        "url": "https://vignette.wikia.nocookie.net/tora-dora/images/8/82/E17_-_9.png/revision/latest/scale-to-width-down/340?cb=20160728131220"
+    }
+}
