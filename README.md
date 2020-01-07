@@ -1,6 +1,8 @@
 # TaigaBot
 Invite Taiga to your discord server for a good time :)
 
+![Taiga](https://vignette.wikia.nocookie.net/tora-dora/images/8/82/E17_-_9.png/revision/latest/scale-to-width-down/340?cb=20160728131220)
+
 # Dependencies
 * Python 3
 * discord.py
