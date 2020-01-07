@@ -20,6 +20,8 @@ Run the bot.py script with the command `Python3 bot.py` and TaigaBot should come
 
 # List of Commands
 
+All commands, custom or otherwise, are **not** case sensitive
+
 taiga
 ---
 `.taiga`
