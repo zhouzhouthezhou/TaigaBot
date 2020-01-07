@@ -90,3 +90,23 @@ async def deletecommand_(message):
 
 async def help_(message):
     pass
+
+async def list_(message):
+    commandList = dict()
+    sysCommandList = dict()
+    with open('commands.json', 'r') as f:
+        commandList = json.load(f)
+    with open('sysCmds.json', 'r') as f:
+        sysCommandList = json.load(f)
+    
+    s = '```System Commands:\n---------------------\n'
+    for key in sysCommandList.keys():
+        s = s + key + '\n'
+    
+    s = s + '\nCustom Commands:\n---------------------\n'
+    for key in commandList.keys():
+        s = s + key + '\n'
+    
+    s = s + '```'
+    await message.channel.send(s)
+

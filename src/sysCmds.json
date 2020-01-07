@@ -2,13 +2,16 @@
     "help" : {
         "type" : 10
     },
-    "addcommand": {
+    "addcommand" : {
         "type": 10
     },
-    "editcommand":{
+    "editcommand" : {
         "type" : 10
     },
-    "deletecommand":{
+    "deletecommand" : {
+        "type" : 10
+    },
+    "list" : {
         "type" : 10
     },
     "ping": {
