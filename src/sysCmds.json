@@ -2,9 +2,12 @@
     "addcommand": {
         "type": 10
     },
+    "editcommand":{
+        "type" : 10
+    },
     "ping": {
         "type": 0,
-        "text": "Pong"
+        "text": "Pong!"
     },
     "taiga": {
         "type": 1,

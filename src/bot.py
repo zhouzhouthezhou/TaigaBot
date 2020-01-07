@@ -40,7 +40,10 @@ class TaigaClient(discord.Client):
             c = message.content[1:].split(' ', 1)
             if c[0] == '':
                 return
-            command = self.commandList[c[0].casefold()]
+            try:
+                command = self.commandList[c[0].casefold()]
+            except (KeyError):
+                await message.channel.send(f'Unrecognized Command: {c[0]}')
 
             if command["type"] == 0:
                 await message.channel.send(command["text"])
@@ -51,7 +54,7 @@ class TaigaClient(discord.Client):
             elif command["type"] == 10:
                 await getattr(commandDriver, c[0].casefold())(message)
             else:
-                await message.channel.send('Unrecognized Command')
+                await message.channel.send('Undefined Command')
 
 client = TaigaClient()
 client.run(token)
