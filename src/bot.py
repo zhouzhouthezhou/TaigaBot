@@ -42,7 +42,7 @@ class TaigaClient(discord.Client):
             try:
                 command = self.commandList[c[0].casefold()]
             except (KeyError):
-                await message.channel.send(f'Unrecognized Command: {c[0]}')
+                #await message.channel.send(f'Unrecognized Command: {c[0]}')
                 return
 
             print(c)
