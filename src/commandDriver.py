@@ -19,17 +19,17 @@ async def _mutatecommand(message):
 
     if params[1][0] == '.' or params[0][0] == '.':
         await message.channel.send('Invalid location for character \'.\'')
-        return
+        return False
 
     if params[0][0] == '_':
         await message.channel.send('Invalid location for character \'_\'')
-        return
+        return False
 
     with open('sysCmds.json', 'r') as f:
         sysCommands = json.load(f)
         if params[0] in sysCommands:
             await message.channel.send('Immutable Command')
-            return
+            return False
 
     with open('commands.json', 'r+') as f:
         commandList = json.load(f)
@@ -40,6 +40,8 @@ async def _mutatecommand(message):
         f.seek(0)
         json.dump(commandList, f, indent=4)
         f.truncate()
+    
+    return True
 
 async def addcommand_(message):
     params = await getPCommand(message)
@@ -51,8 +53,8 @@ async def addcommand_(message):
         await message.channel.send('Invalid form, should take form .addCommand [command name] [text/url]')
         return
 
-    await _mutatecommand(message)
-    await message.channel.send(f'Added command {params[0]}')
+    if await _mutatecommand(message):
+        await message.channel.send(f'Added command {params[0]}')
  
 
 async def editcommand_(message):
