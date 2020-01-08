@@ -148,3 +148,21 @@ async def list_(message):
     s = s + '```'
     await message.channel.send(s)
 
+voiceConnection = None
+
+async def join_(message):
+    global voiceConnection
+    if(message.author.voice != None):
+        voiceConnection = await message.author.voice.channel.connect()
+        await message.channel.send('Connected to voice')
+    else:
+        await message.channel.send('You must be in a voice channel for me to connect')
+
+async def leave_(message):
+    global voiceConnection
+    if(voiceConnection != None):
+        await voiceConnection.disconnect()
+        voiceConnection = None
+        await message.channel.send('Disconnected from voice')
+    else:
+        await message.channel.send('I am not currently in a voice channel')

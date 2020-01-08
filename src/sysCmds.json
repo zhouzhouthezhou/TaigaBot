@@ -38,5 +38,13 @@
         "type": 1,
         "url": "https://media1.tenor.com/images/7282a0f80bf1744a17295a124d891068/tenor.gif?itemid=9140602",
         "help" : "```.kys\n\nhttps://media1.tenor.com/images/7282a0f80bf1744a17295a124d891068/tenor.gif?itemid=9140602```"
+    },
+    "join": {
+        "type": 10,
+        "help": "```.join \n\nThe join command will cause Taiga to join the voice channel you are currently connected to.```"
+    },
+    "leave": {
+        "type": 10,
+        "help": "```.leave \n\nThe leave command will cause Taiga to leave the voice channel it is currently connected to.```"
     }
 }

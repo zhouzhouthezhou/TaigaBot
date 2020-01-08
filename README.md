@@ -6,6 +6,8 @@ Invite Taiga to your discord server for a good time :)
 # Dependencies
 * Python 3
 * discord.py
+* PyNaCl
+* Opus (libopus0 on ubuntu)
 
 # Setup
 Once all the dependecies are installed setting up TaigaBot is fairly trivial.
@@ -54,7 +56,6 @@ help
 ---
 `.help [command name]`
 
-WIP
 The help command will display the documentation of the system command given by `[command name]`.
 
 list
