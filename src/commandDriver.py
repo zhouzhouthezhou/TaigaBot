@@ -7,6 +7,7 @@ async def getPCommand(message):
         params = message.content[(message.content.index(' ') + 1):].split(' ', 1)
     except (ValueError):
         return None
+    print(params)
     return params
 
 async def _mutatecommand(message):
@@ -16,7 +17,6 @@ async def _mutatecommand(message):
 
     print(params)
 
-    
     if params[1][0] == '.' or params[0][0] == '.':
         await message.channel.send('Invalid location for character \'.\'')
         return
@@ -114,11 +114,22 @@ async def deletecommand_(message):
     
 
 async def help_(message):
-    pass
+    params = await getPCommand(message)
+    if params == None or len(params) != 1:
+        await message.channel.send('Invalid form, should take form .help [command name]')
+        return
+    
+    params[0] = params[0].casefold()
+
+    with open('sysCmds.json', 'r') as f:
+        sysCommandList = json.load(f)
+        if not params[0] in sysCommandList.keys():
+            await message.channel.send('Command not found, help is only available for system commands')
+        else:
+            await message.channel.send(sysCommandList[params[0]]["help"])
+
 
 async def list_(message):
-    commandList = dict()
-    sysCommandList = dict()
     with open('commands.json', 'r') as f:
         commandList = json.load(f)
     with open('sysCmds.json', 'r') as f:

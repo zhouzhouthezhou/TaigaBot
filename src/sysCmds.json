@@ -1,33 +1,42 @@
 {
     "help" : {
-        "type" : 10
+        "type" : 10,
+        "help" : "```.help [command name]\n\nThe help command will display the documentation of the system command given by [command name].```"
     },
     "addcommand" : {
-        "type": 10
+        "type": 10,
+        "help" : "```.addCommand [command name] [text/url]\n\nThe addCommand command will add a custom command, [command name], to TaigaBot. This command will make taiga respond with [text/url]. This can either be plain text response or an external link to embedd such and a picture or a gif.```"
     },
     "editcommand" : {
-        "type" : 10
+        "type" : 10,
+        "help" : "```.editCommand [command name] [text/url]\n\nThe editCommand command will edit the custom command given by [command name] to respond with [text/url] or, if the inputed command does not exist, it will create the command in accordance with the .addCommand command.```"
     },
     "deletecommand" : {
-        "type" : 10
+        "type" : 10,
+        "help" : "```.deleteCommand [command name]\n\nThe delete command will delete the custom command given by [command name].```"
     },
     "list" : {
-        "type" : 10
+        "type" : 10,
+        "help" : "```.list\n\nThe list command will list all of the system and custom commands the are currently stored by TaigaBot.```"
     },
     "ping": {
         "type": 0,
-        "text": "Pong!"
+        "text": "Pong!",
+        "help" : "```.ping\n\nPong!```"
     },
     "taiga": {
         "type": 1,
-        "url": "https://vignette.wikia.nocookie.net/tora-dora/images/8/82/E17_-_9.png/revision/latest/scale-to-width-down/340?cb=20160728131220"
+        "url": "https://vignette.wikia.nocookie.net/tora-dora/images/8/82/E17_-_9.png/revision/latest/scale-to-width-down/340?cb=20160728131220",
+        "help" : "```.taiga\n\nThe most important command of all. Responds with a picture of the one and only Taiga Aisaka.```"
     },
     "kms": {
         "type": 1,
-        "url": "https://thumbs.gfycat.com/ApprehensiveJoyfulBonobo-size_restricted.gif"
+        "url": "https://thumbs.gfycat.com/ApprehensiveJoyfulBonobo-size_restricted.gif",
+        "help" : "```.kms\n\nhttps://thumbs.gfycat.com/ApprehensiveJoyfulBonobo-size_restricted.gif```"
     },
     "kys": {
         "type": 1,
-        "url": "https://media1.tenor.com/images/7282a0f80bf1744a17295a124d891068/tenor.gif?itemid=9140602"
+        "url": "https://media1.tenor.com/images/7282a0f80bf1744a17295a124d891068/tenor.gif?itemid=9140602",
+        "help" : "```.kys\n\nhttps://media1.tenor.com/images/7282a0f80bf1744a17295a124d891068/tenor.gif?itemid=9140602```"
     }
 }

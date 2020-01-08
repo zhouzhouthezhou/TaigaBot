@@ -48,14 +48,14 @@ deleteCommand
 ---
 `.deleteCommand [command name]`
 
-The delete command will delete the custom command given by [command name].
+The delete command will delete the custom command given by `[command name]`.
 
 help
 ---
 `.help [command name]`
 
 WIP
-The help command will display the documentation of the system command given by [command name].
+The help command will display the documentation of the system command given by `[command name]`.
 
 list
 ---
