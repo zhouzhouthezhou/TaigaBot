@@ -2,3 +2,6 @@ taigaBot.token
 commands.json
 /TaigaBotEnv
 /.vscode
+/src/audioSamples/savedSongs/*
+/src/audioSamples/playlists/*
+/src/audioSamples/tempdl/*

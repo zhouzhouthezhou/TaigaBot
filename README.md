@@ -4,10 +4,16 @@ Invite Taiga to your discord server for a good time :)
 ![Taiga](https://vignette.wikia.nocookie.net/tora-dora/images/8/82/E17_-_9.png/revision/latest/scale-to-width-down/340?cb=20160728131220)
 
 # Dependencies
+Python Dependencies
+---
 * Python 3
 * discord.py
 * PyNaCl
+
+System Depedencies
+---
 * Opus (libopus0 on ubuntu)
+* ffmpeg
 
 # Setup
 Once all the dependecies are installed setting up TaigaBot is fairly trivial.
