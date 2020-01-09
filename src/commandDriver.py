@@ -1,6 +1,7 @@
 #complex commands
 import discord
 import json
+import time
 
 async def getPCommand(message):
     try:
@@ -161,8 +162,14 @@ async def join_(message):
 async def leave_(message):
     global voiceConnection
     if(voiceConnection != None):
+        voiceConnection.stop()
+        voiceConnection.play(discord.FFmpegPCMAudio('audioSamples/taiga_baka.opus'), after=lambda e: print(e))
+        time.sleep(2.1)
         await voiceConnection.disconnect()
         voiceConnection = None
         await message.channel.send('Disconnected from voice')
     else:
         await message.channel.send('I am not currently in a voice channel')
+
+async def play_(message):
+    voiceConnection.play(discord.FFmpegPCMAudio('audioSamples/pitd.opus'), after=lambda e: print(e))

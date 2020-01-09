@@ -46,5 +46,9 @@
     "leave": {
         "type": 10,
         "help": "```.leave \n\nThe leave command will cause Taiga to leave the voice channel she is currently connected to.```"
+    },
+    "play": {
+        "type": 10,
+        "help ": "```help yourself k thanks````"
     }
 }
