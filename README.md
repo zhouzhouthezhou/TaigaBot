@@ -9,6 +9,7 @@ Python Dependencies
 * Python 3
 * discord.py
 * PyNaCl
+* youtube-dl
 
 System Depedencies
 ---

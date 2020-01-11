@@ -50,5 +50,15 @@
     "play": {
         "type": 10,
         "help ": "```help yourself k thanks````"
+    },
+    "pause": {
+
+    },
+    "stop": {
+
+    },
+    "playlist": {
+
     }
+
 }

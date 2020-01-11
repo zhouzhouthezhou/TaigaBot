@@ -2,6 +2,8 @@
 import discord
 import json
 import time
+import youtube_dl
+from __future__ import unicode_literals
 
 async def getPCommand(message):
     try:
@@ -172,4 +174,24 @@ async def leave_(message):
         await message.channel.send('I am not currently in a voice channel')
 
 async def play_(message):
-    voiceConnection.play(discord.FFmpegPCMAudio('audioSamples/pitd.opus'), after=lambda e: print(e))
+    params = await getPCommand(message)
+    if params == None or len(params) != 1:
+        await message.channel.send('Invalid form, should take form .play [url/playlist]')
+        return
+
+    params[0] = params[0].casefold()
+
+    if voiceConnection == None:
+        await message.channel.send('I need to be in a voice channel to play anything, try using the .join command')
+        return
+    else:
+        voiceConnection.play(discord.FFmpegPCMAudio('audioSamples/pitd.opus'), after=lambda e: print(e))
+
+async def pause_(message):
+    pass
+
+async def stop_(message):
+    pass
+
+async def playlist_(message):
+    pass
