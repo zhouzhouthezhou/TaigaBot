@@ -1,9 +1,9 @@
 #complex commands
+from __future__ import unicode_literals
 import discord
 import json
 import time
 import youtube_dl
-from __future__ import unicode_literals
 
 async def getPCommand(message):
     try:
@@ -116,8 +116,6 @@ async def deletecommand_(message):
 
     await message.channel.send(f'Custom command {params[0]} deleted')
 
-    
-
 async def help_(message):
     params = await getPCommand(message)
     if params == None or len(params) != 1:
@@ -132,7 +130,6 @@ async def help_(message):
             await message.channel.send('Command not found, help is only available for system commands')
         else:
             await message.channel.send(sysCommandList[params[0]]["help"])
-
 
 async def list_(message):
     with open('commands.json', 'r') as f:
@@ -150,6 +147,19 @@ async def list_(message):
     
     s = s + '```'
     await message.channel.send(s)
+
+#####################################################################################
+
+class MyLogger(object):
+    def debug(self, msg):
+        pass
+
+    def warning(self, msg):
+        pass
+
+    def error(self, msg):
+        print(msg)
+
 
 voiceConnection = None
 
@@ -173,6 +183,10 @@ async def leave_(message):
     else:
         await message.channel.send('I am not currently in a voice channel')
 
+def _youtubeHook(d):
+    if d['status'] == 'finished':
+        print('Done downloading, now converting ...')
+
 async def play_(message):
     params = await getPCommand(message)
     if params == None or len(params) != 1:
@@ -181,11 +195,33 @@ async def play_(message):
 
     params[0] = params[0].casefold()
 
+    if not 'https://' in params[0] or not ('youtube' in params[0] or 'youtu.be' in params[0]):
+        await message.channel.send('Command input must be a valid youtube url')
+        return
+    
+
     if voiceConnection == None:
         await message.channel.send('I need to be in a voice channel to play anything, try using the .join command')
         return
     else:
-        voiceConnection.play(discord.FFmpegPCMAudio('audioSamples/pitd.opus'), after=lambda e: print(e))
+        #voiceConnection.play(discord.FFmpegPCMAudio('audioSamples/pitd.opus'), after=lambda e: print(e))
+        ydl_opts = {
+            'format': 'bestaudio/best',
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+                'preferredquality': '192',
+            }],
+            'logger': MyLogger(),
+            'progress_hooks': [_youtubeHook],
+        }
+        ytest = {}
+        with youtube_dl.YoutubeDL(ytest) as ydl:
+            ydl.download(['https://www.youtube.com/watch?v=BaW_jenozKc']) 
+    
+
+
+
 
 async def pause_(message):
     pass
