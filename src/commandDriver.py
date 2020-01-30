@@ -28,6 +28,14 @@ async def _mutatecommand(message):
         await message.channel.send('Invalid location for character \'_\'')
         return False
 
+    if '`' in params[0][0]:
+        await message.channel.send('Invalid location for character \'`\'')
+        return False
+
+    if '\n' in params[0][0] or '\r' in params[0][0]:
+        await message.channel.send('Invalid use of newline')
+        return False
+
     with open('sysCmds.json', 'r') as f:
         sysCommands = json.load(f)
         if params[0] in sysCommands:
