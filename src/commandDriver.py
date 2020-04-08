@@ -156,6 +156,18 @@ async def list_(message):
     s = s + '```'
     await message.channel.send(s)
 
+async def togglesimpdetector_(message):
+    with open('simpvar', 'r') as f:
+        simpVar = f.read()
+    f = open('simpvar', 'w')
+    if simpVar == 'true':
+        f.write('false')
+        f.close()
+        await message.channel.send('Simp Detector disabled')
+    else:
+        f.write('true')
+        f.close()
+        await message.channel.send('Simp Detector enabled')
 #####################################################################################
 
 class MyLogger(object):
