@@ -30,6 +30,16 @@ class TaigaClient(discord.Client):
             author = message.author.name if message.author.nick == None else message.author.nick
             await message.channel.send(content=f'UwU {author} needs your bulgy wolgy {r.name}', tts=True)
 
+    async def catchSimps(self, message):
+        if 'togglesimpdetector' in message.content:
+            return
+        with open('simpvar', 'r') as f:
+            simpVar = f.read()
+        if simpVar == 'true' and message.author.name == 'Neuro':
+            e = discord.Embed()
+            e.set_image(url='https://i.kym-cdn.com/photos/images/newsfeed/001/709/184/73a.jpg')
+            await message.channel.send(content=None, embed=e)
+
 
     async def on_message(self, message):
         await self.refreshCommands()
@@ -38,11 +48,13 @@ class TaigaClient(discord.Client):
         if len(message.content) > 0 and message.content[0] == '.':
             c = message.content[1:].split(' ', 1)
             if c[0] == '':
+                await self.catchSimps(message)
                 return
             try:
                 command = self.commandList[c[0].casefold()]
             except (KeyError):
                 #await message.channel.send(f'Unrecognized Command: {c[0]}')
+                await self.catchSimps(message)
                 return
 
             print(c)
@@ -58,12 +70,8 @@ class TaigaClient(discord.Client):
             else:
                 await message.channel.send('Undefined Command')
 
-        with open('simpvar', 'r') as f:
-            simpVar = f.read()
-        if simpVar == 'true' and message.author.name == 'Neuro':
-            e = discord.Embed()
-            e.set_image(url='https://i.kym-cdn.com/photos/images/newsfeed/001/709/184/73a.jpg')
-            await message.channel.send(content=None, embed=e)
+        await self.catchSimps(message)
+
 
 client = TaigaClient()
 client.run(token)
