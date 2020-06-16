@@ -2,6 +2,9 @@ import discord
 import json
 import commandDriver
 
+simpArr = []
+with open('simpeFile.txt', 'r') as simpFile:
+    simpArr.append(simpFile.read())
 with open('taigaBot.token', 'r') as f:
     token = f.read()
 
@@ -35,7 +38,7 @@ class TaigaClient(discord.Client):
             return
         with open('simpvar', 'r') as f:
             simpVar = f.read()
-        if simpVar == 'true' and (message.author.name == 'Neuro' or message.author.name == 'Taiga Aisaka'):
+        if simpVar == 'true' and message.author.name in simpArr:
             e = discord.Embed()
             e.set_image(url='https://i.kym-cdn.com/photos/images/newsfeed/001/709/184/73a.jpg')
             await message.channel.send(content=None, embed=e)
