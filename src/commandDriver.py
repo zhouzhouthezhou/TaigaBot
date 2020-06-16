@@ -157,22 +157,23 @@ async def list_(message):
     await message.channel.send(s)
 
 async def togglesimpdetector_(message):
-    if message.author.name == 'Neuro':
-        e = discord.Embed()
-        e.set_image(url='https://ih0.redbubble.net/image.1008996081.6402/st,small,507x507-pad,600x600,f8f8f8.jpg')
-        await message.channel.send(content='By order of the Simp Patrol you are not allowed to use this command', embed=e)
-    else:
-        with open('simpvar', 'r') as f:
-            simpVar = f.read()
-        f = open('simpvar', 'w')
-        if simpVar == 'true':
-            f.write('false')
-            f.close()
-            await message.channel.send('Simp Detector disabled')
-        else:
+    with open('simpvar', 'r') as f:
+        simpVar = f.read()
+    f = open('simpvar', 'w')
+    if simpVar == 'true':
+        if message.author.name == 'Neuro':
             f.write('true')
-            f.close()
-            await message.channel.send('Simp Detector enabled')
+            e = discord.Embed()
+            e.set_image(url='https://ih0.redbubble.net/image.1008996081.6402/st,small,507x507-pad,600x600,f8f8f8.jpg')
+            await message.channel.send(content='By order of the Simp Patrol you are not allowed to use this command', embed=e)
+        else:
+            f.write('false')
+            await message.channel.send('Simp Detector disabled')
+        f.close()
+    else:
+        f.write('true')
+        f.close()
+        await message.channel.send('Simp Detector enabled')
 #####################################################################################
 
 class MyLogger(object):

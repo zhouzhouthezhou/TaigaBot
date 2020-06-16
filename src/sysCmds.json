@@ -28,6 +28,11 @@
         "text": "Pong!",
         "help": "```.ping \n\nPong!```"
     },
+    "takeoffclothes": {
+	"type": 0,
+	"text": "BAKA HENTAI\nhttps://github.com/zhouzhouthezhou/TaigaBot",
+	"help": ".tageoffclothes \n\nRun if you want to see a nude waifu ;)"
+    },
     "taiga": {
         "type": 1,
         "url": "https://vignette.wikia.nocookie.net/tora-dora/images/8/82/E17_-_9.png/revision/latest/scale-to-width-down/340?cb=20160728131220",
