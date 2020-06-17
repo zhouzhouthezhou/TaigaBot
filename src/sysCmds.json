@@ -23,6 +23,10 @@
         "type": 10,
         "help": "```.togglesimpdetector \n\nThe togglesimpdetector command will toggle the state of the simp detector```"
     },
+	"flipcoin": {
+		"type": 10,
+		"help": "```.flipcoin \n\nThe flipcoin command will flip a coin for you```"
+	},
     "ping": {
         "type": 0,
         "text": "Pong!",

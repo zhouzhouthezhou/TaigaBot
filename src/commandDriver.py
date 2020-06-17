@@ -1,5 +1,6 @@
 #complex commands
 from __future__ import unicode_literals
+import random
 import discord
 import json
 import time
@@ -91,6 +92,7 @@ async def editcommand_(message):
     added = False
     if not params[0] in commandList:
         await message.channel.send(f'Command not found, creating new command {params[0]}')
+    pass
         added = True
     
     await _mutatecommand(message)
@@ -174,6 +176,16 @@ async def togglesimpdetector_(message):
         f.write('true')
         f.close()
         await message.channel.send('Simp Detector enabled')
+
+async def flipcoin_(message):
+    random.seed()
+    flip = random.randint(0,2)
+    if flip == 0:
+        await message.channel.send('Heads')
+    elif flip == 1:
+        await message.channel.send('Tails')
+    else:
+        await message.channel.send('??????')
 #####################################################################################
 
 class MyLogger(object):
