@@ -21,11 +21,13 @@ Once all the dependecies are installed setting up TaigaBot is fairly trivial.
 
 Fork the repo and follow the following steps:
 
-First, in order to link TaigaBot to your discord bot, you need to create a file named taigaBot.token in the src directory. This is where you will copy your bot's token to link the discord bot to TaigaBot. **Make sure there is only one line in the file**
+First, in order to link TaigaBot to your discord bot, you need to create a file named `taigaBot.token` in the src directory. This is where you will copy your bot's token to link the discord bot to TaigaBot. **Make sure there is only one line in the file**
 
-Finally, to add the custom commands functionality you need to create a file named commands.json in the src directory and TaigaBot should be set up. Note: If you try to add custom commands and the terminal says something to the tune of `Permission Denied` run the command `sudo chmod 666 commands.json`
+Finally, to add the custom commands functionality you need to create a file named `commands.json` in the src directory and put `{}` into the file. TaigaBot should now be set up. 
 
-Run the bot.py script with the command `Python3 bot.py` and TaigaBot should come to life!
+Note: If you try to add custom commands and the terminal says something to the tune of `Permission Denied` run the command `sudo chmod 666 commands.json`
+
+Run the bot.py script with the command `python3 bot.py` and TaigaBot should come to life!
 
 # Developer Notes
 I'll get back to this
