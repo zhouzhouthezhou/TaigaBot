@@ -1,5 +1,6 @@
 taigaBot.token
 commands.json
+/TaigaBot/config.json
 /TaigaBotEnv
 /.vscode
 
@@ -11,3 +12,5 @@ commands.json
 
 /src/audioSamples/tempdl/*
 !/src/audioSamples/tempdl/git.keep
+
+TaigaBot/node_modules/
